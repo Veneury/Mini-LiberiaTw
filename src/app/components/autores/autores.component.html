@@ -1,0 +1,29 @@
+<div class="container">
+<h1 class="text-center">Listado de autores</h1>
+<button class="btn btn-primary align-content-end " [routerLink]="['/nuevo-autor','nuevo']" routerLinkActive="router-link-active" >Nuevo</button>
+<hr>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" *ngFor="let title of titulos">{{title}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let autor of autores; let i =index;">
+            <td>{{autor.id}}</td>
+            <td>{{autor.nombre}}</td>
+            <td>{{autor.apellido}}</td>
+            <td>{{autor.biografica}}</td>
+            <td *ngIf="autor.estado==1"><span class="badge badge-primary">Activo</span></td>
+            <td *ngIf="autor.estado==0"><span class="badge badge-danger">Desactivado</span></td>
+            <td>
+                <button class="btn btn-warning" [routerLink]="['/nuevo-autor',autor.id]">Editar</button>
+                <button class="btn btn-danger">Eliminar</button>
+            </td>
+          </tr >
+        </tbody>
+      </table>
+</div>
+</div>
+

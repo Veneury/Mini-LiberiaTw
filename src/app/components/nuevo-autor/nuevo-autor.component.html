@@ -1,0 +1,41 @@
+<div class="container">
+    <!-- <div class="row"> -->
+        <h1>Nuevo Autor</h1>
+        <hr>
+        <form [formGroup]="autor" (ngSubmit)="guardarAutores()">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="inputEmail4">ID</label>
+                <input type="text"  readonly class="form-control" id="id" formControlName="id"/>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Nombre</label>
+                <input type="text"  class="form-control" id="nombre" formControlName="Nombre"/>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Apellido</label>
+                <input type="text" name="apellido" class="form-control" id="apellido" formControlName="Apellido">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Biografica</label>
+                <textarea type="text" name="apellido" class="form-control" id="biografia" formControlName="Biografica"></textarea>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword4">Estado</label>
+                <select name="estado" class="form-control" formControlName="Estado">
+                    <option value="" selected>Seleccione</option>
+                    <option value="1">Activo</option>
+                    <option value="0">Desactivado</option>
+                </select>
+            
+              </div>
+              <div class="col col-xl-6 col-md-12 col-lg-12">
+                 <button [disabled]="!autor.valid" type="submit" class="btn btn-primary text-centers">Agregar</button>
+              </div >
+            </div>
+        </form>
+            <div style="margin: 1em;" *ngIf="autor.valid==false">
+              <div class="alert alert-danger">El formulario es invalido </div>
+            </div>
+    <!-- </div> -->
+</div>

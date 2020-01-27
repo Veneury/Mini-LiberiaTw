@@ -1,0 +1,26 @@
+<div class="container">
+    <h1 class="text-center">Listado de Editoriales</h1>
+    <button class="btn btn-primary align-content-end " [routerLink]="['/nueva-editorial','nuevo']" routerLinkActive="router-link-active" >Nuevo</button>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" *ngFor="let title of titulos">{{title}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let editorial of editoriales; let i =index;">
+                <td>{{editorial.id}}</td>
+                <td>{{editorial.nombre}}</td>
+                <td *ngIf="editorial.estado==1"><span class="badge badge-primary">Activo</span></td>
+                <td *ngIf="editorial.estado==0"><span class="badge badge-danger">Desactivado</span></td>
+                <td>
+                    <button class="btn btn-warning" [routerLink]="['/nueva-editorial',editorial.id]">Editar</button>
+                    <button class="btn btn-danger">Eliminar</button>
+                </td>
+              </tr >
+            </tbody>
+          </table>
+    </div>
+    </div>
